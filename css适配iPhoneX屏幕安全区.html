@@ -1,0 +1,61 @@
+<!-- 参考文件 https://segmentfault.com/a/1190000020887571?utm_source=tag-newest -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" name="viewport" />
+  <title>css适配iPhoneX屏幕安全区</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100vh;
+      background-color: #333333;
+    }
+    /* 你的贴底元素↓ */
+    .container {
+      width: 100vw;
+      height: onstant(safe-area-inset-bottom); /* 兼容 iOS < 11.2 */
+      height: env(safe-area-inset-bottom); /* 兼容 iOS>= 11.2*/
+      position: fixed;
+      bottom: 0;
+      background-color: #ffffff;
+
+    }
+
+    .link-other{
+      padding: 10px;
+      position: fixed;
+      top: 20px;
+      left: 40px;
+      background-color: blueviolet;
+      border-radius: 10px;
+    }
+
+    .inner-loop{
+      text-align: center;
+      color: #ffffff;
+      padding: 4px 0;
+    }
+  </style>
+</head>
+<body>
+  <a class="link-other" href="https://www.baidu.com">^</a>
+  <div class="fit-iphonex"></div>
+  <div class="container"></div>
+
+  <script>
+    window.onload = function () {
+      let con = document.getElementsByClassName('fit-iphonex')[0], tpl = '';
+
+      for (let i = 0; i< 100; i++) {
+        tpl += `<p class="inner-loop">${i + 1}</p>`
+      }
+      con.innerHTML = tpl;
+    }
+  </script>
+</body>
+</html>
