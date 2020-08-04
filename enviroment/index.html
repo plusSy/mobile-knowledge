@@ -1,0 +1,26 @@
+<!--
+ * @Description: 
+ * @Version: v0.0.1
+ * @Autor: syl
+ * @Date: 2020-08-04 15:15:33
+ * @LastEditors: syl
+ * @LastEditTime: 2020-08-04 15:44:03
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./enviroment.js"></script>
+</head>
+<body>
+  <div id="con"></div>
+  <script>
+      getEnviroment().then(res => {
+        document.getElementById('con').innerHTML = `enviroment: <span style="color: red;">${res}</span>`
+      });
+  </script>
+</body>
+</html>
